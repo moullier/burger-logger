@@ -42,18 +42,20 @@ function eatBurger() {
 
     console.log("dataID of burger that we're eventually going to eat = " + dataID)
 
+    let data = {
+        devoured: true
+    }
 
-
-    // // Send the PUT request.
-    // $.ajax("/api/cats/" + id, {
-    //   type: "PUT",
-    //   data: newSleepState
-    // }).then(
-    //   function() {
-    //     console.log("changed sleep to", newSleep);
-    //     // Reload the page to get the updated list
-    //     location.reload();
-    //   }
-    // );
+    // Send the PUT request.
+    $.ajax("/api/update/" + dataID, {
+      type: "PUT",
+      data: data
+    }).then(
+      function() {
+        console.log("did we update successfully?  who knows");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
 
 }

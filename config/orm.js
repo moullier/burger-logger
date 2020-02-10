@@ -19,8 +19,14 @@ let orm = {
         });
     },
     updateOne: function(tableInput, colInput, colValue, colIdentifier, valIdentifier, cb) {
-        let queryString = `UPDATE ?? SET ?? = ? WHERE ?? = ?;`;
-        connection.query(queryString, [tableInput, name], function(err, result) {
+      console.log("tableInput = " + tableInput);
+      console.log("colInput = " + colInput);
+      console.log("colValue = " + colValue);
+      console.log("colIdentifier = " + colIdentifier);
+      console.log("valIdentifier = " + valIdentifier);  
+      
+      let queryString = `UPDATE ?? SET ?? = ? WHERE ?? = ?;`;
+        connection.query(queryString, [tableInput, colInput, colValue, colIdentifier, valIdentifier], function(err, result) {
           if (err) throw err;
         console.log(result);
         cb(result);

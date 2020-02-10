@@ -51,33 +51,26 @@ router.post("/api/new/", function(req, res) {
 
 });
 
+router.put("/api/update/:id", function(req, res) {
+    console.log(req.body);
+    console.log("****");
 
-// router = {
-//     printHello: function() {
-//         console.log("Hello!");
-//     },
-//     getAllBurgers: function() {
-//         console.log("getAllBurgers");
-       
-//         app.get("/", (req, res) => {
-//             console.log(res);
-//         });
-//     },
-//     test: async function() {
-//         try {
-//             const data = await app.get("/", (req, res) => {
-//                return res;
-//             });
-//         } catch (e) {
-//             console.log(e);
-//             res.status(500).send('server error');
-//         }
-//     }
-    
+    let id = req.params.id;
+    // function(tableInput, colInput, colValue, colIdentifier, valIdentifier, cb)
+    burger.updateOne("burgers", "devoured", 1, "id", id, function(data) {
+        
+        console.log("This is in router.put function");
+        console.log(data);
+        let hbsObject = {
+            burgers: data
+        };
+        
+        res.render("index", hbsObject);
+
+    });
+
+});
 
 
-
-
-// };
 
 module.exports = router;

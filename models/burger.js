@@ -19,8 +19,12 @@ let burger = {
             cb(res);
         })
     },
-    updateOne: function() {
+    updateOne: function(tableInput, colInput, colValue, colIdentifier, valIdentifier, cb) {
         console.log("burger.js updateOne function");
+        orm.updateOne(tableInput, colInput, colValue, colIdentifier, valIdentifier, function(res) {
+            console.log("This is in burger.js insertOne function");
+            cb(res);
+        });
     }
 }
 
