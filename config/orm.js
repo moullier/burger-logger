@@ -9,15 +9,22 @@ let orm = {
          cb(result);
         });
     },
-    insertOne: function() {
-        let queryString = "INSERT INTO ?? ";
-        connection.query(queryString, [tableInput], function(err, result) {
+    insertOne: function(tableInput, name, cb) {
+      //INSERT INTO burgers (burger_name, devoured) values ('Bacon Cheeseburger', false);
+        let queryString = "INSERT INTO ?? (burger_name, devoured) values (?, false);";
+        connection.query(queryString, [tableInput, name], function(err, result) {
           if (err) throw err;
-          console.log(result);
+        console.log(result);
+        cb(result);
         });
     },
-    updateOne: function() {
-
+    updateOne: function(tableInput, colInput, colValue, colIdentifier, valIdentifier, cb) {
+        let queryString = `UPDATE ?? SET ?? = ? WHERE ?? = ?;`;
+        connection.query(queryString, [tableInput, name], function(err, result) {
+          if (err) throw err;
+        console.log(result);
+        cb(result);
+      });
     }
 }
 

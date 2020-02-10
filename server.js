@@ -12,6 +12,11 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static("public"));
+//app.use(express.static(path.join(__dirname, 'public')));
+
 // set up handlebars layout and engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");

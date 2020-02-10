@@ -29,8 +29,28 @@ router.get("/", function(req, res) {
         res.render("index", hbsObject);
 
     });
-  });
+});
   
+router.post("/api/new/", function(req, res) {
+
+    console.log(req.body);
+    console.log("**");
+    burger.insertOne("burgers", req.body.name, function(data) {
+
+        //   console.log(hbsObject);
+
+        console.log("This is in router.post function");
+        console.log(data);
+        let hbsObject = {
+            burgers: data
+        };
+        
+        res.render("index", hbsObject);
+
+    });
+
+});
+
 
 // router = {
 //     printHello: function() {

@@ -8,10 +8,19 @@ let orm = require("../config/orm.js");
 
 let burger = {
     selectAll: function(cb) {
-      orm.selectAll("burgers", function(res) {
-          console.log("This is in burger.js selectAll function");
-        cb(res);
-      });
+        orm.selectAll("burgers", function(res) {
+            console.log("This is in burger.js selectAll function");
+            cb(res);
+        });
+    },
+    insertOne: function(tableInput, name, cb) {
+        orm.insertOne(tableInput, name, function(res) {
+            console.log("This is in burger.js insertOne function");
+            cb(res);
+        })
+    },
+    updateOne: function() {
+        console.log("burger.js updateOne function");
     }
 }
 
