@@ -6,14 +6,12 @@ $(document).ready(function() {
     
 });
 
-
+// adding a new burger
 function submitBurger() {
     event.preventDefault();
 
-    console.log("submitBurger function is hit");
-
     let newName = $("#inputBurger").val().trim();
-    console.log("newName is " + newName);
+    // console.log("newName is " + newName);
 
     let postData = {
         name: newName
@@ -25,7 +23,6 @@ function submitBurger() {
       data: postData
     }).then(
       function() {
-        console.log("maybe it worked?");
         // Reload the page to get the updated list
         location.reload();
       }
@@ -40,8 +37,7 @@ function eatBurger() {
     // get the dataHour of the specific saveBtn that was clicked
     let dataID = $(this).attr("dataID");
 
-    console.log("dataID of burger that we're eventually going to eat = " + dataID)
-
+    // set the burger to be eaten
     let data = {
         devoured: true
     }
@@ -52,7 +48,6 @@ function eatBurger() {
       data: data
     }).then(
       function() {
-        console.log("did we update successfully?  who knows");
         // Reload the page to get the updated list
         location.reload();
       }

@@ -15,19 +15,15 @@ app.use(express.json());
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
-//app.use(express.static(path.join(__dirname, 'public')));
 
 // set up handlebars layout and engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
+// use the routes set up in burger_controller
 app.use(routes);
-// routes.printHello();
-//let burgerData = await router.test();
-//burgerData.render("index");
-//console.log(burgerData.data);
 
+// set server to listen for connections
 app.listen(PORT, () => {
     console.log("App now listening at localhost:" + PORT);
 });
